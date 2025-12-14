@@ -1,371 +1,195 @@
 # Page snapshot
 
 ```yaml
-- generic [ref=e1]:
+- generic [active] [ref=e1]:
   - generic:
-    - progressbar "Please wait" [ref=e2]
     - status
     - status
-  - generic [ref=e11]:
-    - generic [ref=e14]:
-      - button [ref=e17] [cursor=pointer]
-      - generic [ref=e18]:
-        - link "MI PERFIL" [ref=e20] [cursor=pointer]:
+  - generic [ref=e6]:
+    - generic [ref=e9]:
+      - button [ref=e12] [cursor=pointer]
+      - generic [ref=e13]:
+        - link "MI PERFIL" [ref=e15] [cursor=pointer]:
           - /url: "#"
-        - link "SALIR" [ref=e22] [cursor=pointer]:
+        - link "SALIR" [ref=e17] [cursor=pointer]:
           - /url: "#"
-    - navigation "Breadcrumb Trail" [ref=e28]:
-      - list [ref=e29]:
-        - listitem [ref=e30]:
-          - link "INICIO" [active] [ref=e31] [cursor=pointer]:
+    - navigation "Breadcrumb Trail" [ref=e23]:
+      - list [ref=e24]:
+        - listitem [ref=e25]:
+          - link "INICIO" [ref=e26] [cursor=pointer]:
             - /url: "#"
           - text: /
+        - listitem [ref=e27]:
+          - generic [ref=e28]: Estado de Cuenta
     - generic [ref=e39]:
-      - generic [ref=e40]: Seleccioná tu cuenta
-      - generic [ref=e43] [cursor=pointer]:
-        - combobox [ref=e44]
-        - textbox [ref=e45]
-        - generic [ref=e47]: 
-      - button "Ver detalle" [ref=e50] [cursor=pointer]:
-        - generic [ref=e51]:
-          - generic [ref=e52]: Ver detalle
-          - generic [ref=e53]: 
-      - generic [ref=e54]:
-        - generic [ref=e56]: Buscá el trámite que querés hacer
-        - generic [ref=e59]:
-          - 'searchbox "Ej: Pagar mi deuda" [ref=e60]'
-          - generic [ref=e61]: 
-      - listbox [ref=e63]:
-        - option [ref=e64]:
-          - form [ref=e66]:
-            - banner [ref=e67]:
-              - button "Expand/Collapse" [ref=e68] [cursor=pointer]:
-                - generic [ref=e70]: 
-              - generic [ref=e72]: Solicitar la Tarifa Social
-            - text:      
-        - option [ref=e74]:
-          - form [ref=e76]:
-            - banner [ref=e77]:
-              - button "Expand/Collapse" [ref=e78] [cursor=pointer]:
-                - generic [ref=e80]: 
-              - generic [ref=e82]: Tratamiento de deuda Tarifa Social
-            - text:     
-        - option [ref=e84]:
-          - form [ref=e86]:
-            - banner [ref=e87]:
-              - button "Expand/Collapse" [ref=e88] [cursor=pointer]:
-                - generic [ref=e90]: 
-              - generic [ref=e92]: Estado de cuenta
-            - text:  
-        - option [ref=e94]:
-          - form [ref=e96]:
-            - banner [ref=e97]:
-              - button "Expand/Collapse" [ref=e98] [cursor=pointer]:
-                - generic [ref=e100]: 
-              - generic [ref=e102]: Ver y Pagar mis facturas
-            - text:  
-        - option [ref=e104]:
-          - form [ref=e106]:
-            - banner [ref=e107]:
-              - button "Expand/Collapse" [ref=e108] [cursor=pointer]:
-                - generic [ref=e110]: 
-              - generic [ref=e112]: Pagar mi deuda
-            - text:       
-        - option [ref=e114]:
-          - form [ref=e116]:
-            - banner [ref=e117]:
-              - button "Expand/Collapse" [ref=e118] [cursor=pointer]:
-                - generic [ref=e120]: 
-              - generic [ref=e122]: Ver y Pagar mis planes de pago
-            - text:  
-        - option [ref=e124]:
-          - form [ref=e126]:
-            - banner [ref=e127]:
-              - button "Expand/Collapse" [ref=e128] [cursor=pointer]:
-                - generic [ref=e130]: 
-              - generic [ref=e132]: Adhesión a Factura Digital
-            - text:  
-        - option [ref=e134]:
-          - form [ref=e136]:
-            - banner [ref=e137]:
-              - button "Expand/Collapse" [ref=e138] [cursor=pointer]:
-                - generic [ref=e140]: 
-              - generic [ref=e142]: No recibí mi factura
-            - text:    
-        - option [ref=e144]:
-          - form [ref=e146]:
-            - banner [ref=e147]:
-              - button "Expand/Collapse" [ref=e148] [cursor=pointer]:
-                - generic [ref=e150]: 
-              - generic [ref=e152]: Solicitar factura braille
-            - text:  
-        - option [ref=e154]:
-          - form [ref=e156]:
-            - banner [ref=e157]:
-              - button "Expand/Collapse" [ref=e158] [cursor=pointer]:
-                - generic [ref=e160]: 
-              - generic [ref=e162]: Solicitar el cambio de mi situación impositiva
-            - text:    
-        - option [ref=e164]:
-          - form [ref=e166]:
-            - banner [ref=e167]:
-              - button "Expand/Collapse" [ref=e168] [cursor=pointer]:
-                - generic [ref=e170]: 
-              - generic [ref=e171]:
-                - generic [ref=e172]: Cambiar la titularidad del servicio
-                - generic [ref=e174]: ¡Ahora es más fácil!
-            - text:                       
-        - option [ref=e175]:
-          - form [ref=e177]:
-            - banner [ref=e178]:
-              - button "Expand/Collapse" [ref=e179] [cursor=pointer]:
-                - generic [ref=e181]: 
-              - generic [ref=e183]: Cambiar el domicilio postal
-            - text:     
-        - option [ref=e185]:
-          - form [ref=e187]:
-            - banner [ref=e188]:
-              - button "Expand/Collapse" [ref=e189] [cursor=pointer]:
-                - generic [ref=e191]: 
-              - generic [ref=e193]: Corregir la dirección del inmueble
-            - text:  
-        - option [ref=e195]:
-          - form [ref=e197]:
-            - banner [ref=e198]:
-              - button "Expand/Collapse" [ref=e199] [cursor=pointer]:
-                - generic [ref=e201]: 
-              - generic [ref=e203]: Débito automático
-            - text:   
-        - option [ref=e205]:
-          - form [ref=e207]:
-            - banner [ref=e208]:
-              - button "Expand/Collapse" [ref=e209] [cursor=pointer]:
-                - generic [ref=e211]: 
-              - generic [ref=e213]: Verificar Pago
-            - text:   
-        - option [ref=e215]:
-          - form [ref=e217]:
-            - banner [ref=e218]:
-              - button "Expand/Collapse" [ref=e219] [cursor=pointer]:
-                - generic [ref=e221]: 
-              - generic [ref=e223]: Alta de débito pendiente
-            - text:    
-        - option [ref=e225]:
-          - form [ref=e227]:
-            - banner [ref=e228]:
-              - button "Expand/Collapse" [ref=e229] [cursor=pointer]:
-                - generic [ref=e231]: 
-              - generic [ref=e233]: Devolución de crédito
-            - text:            
-        - option [ref=e235]:
-          - form [ref=e237]:
-            - banner [ref=e238]:
-              - button "Expand/Collapse" [ref=e239] [cursor=pointer]:
-                - generic [ref=e241]: 
-              - generic [ref=e243]: Instalación de medidor
-            - text:      
-        - option [ref=e245]:
-          - form [ref=e247]:
-            - banner [ref=e248]:
-              - button "Expand/Collapse" [ref=e249] [cursor=pointer]:
-                - generic [ref=e251]: 
-              - generic [ref=e253]: Solicitar la inspección del medidor
-            - text:  
-        - option [ref=e255]:
-          - form [ref=e257]:
-            - banner [ref=e258]:
-              - button "Expand/Collapse" [ref=e259] [cursor=pointer]:
-                - generic [ref=e261]: 
-              - generic [ref=e263]: Verificar reparación de pérdidas internas del inmueble
-            - text:   
-        - option [ref=e265]:
-          - form [ref=e267]:
-            - banner [ref=e268]:
-              - button "Expand/Collapse" [ref=e269] [cursor=pointer]:
-                - generic [ref=e271]: 
-              - generic [ref=e273]: Solicitar inspección de instalaciones internas
-            - text:   
-        - option [ref=e275]:
-          - form [ref=e277]:
-            - banner [ref=e278]:
-              - button "Expand/Collapse" [ref=e279] [cursor=pointer]:
-                - generic [ref=e281]: 
-              - generic [ref=e283]: Solicitar cargo por construcción
-            - text:   
-        - option [ref=e285]:
-          - form [ref=e287]:
-            - banner [ref=e288]:
-              - button "Expand/Collapse" [ref=e289] [cursor=pointer]:
-                - generic [ref=e291]: 
-              - generic [ref=e293]: Reclamar cargo de agua por construcción
-            - text:  
-        - option [ref=e295]:
-          - form [ref=e297]:
-            - banner [ref=e298]:
-              - button "Expand/Collapse" [ref=e299] [cursor=pointer]:
-                - generic [ref=e301]: 
-              - generic [ref=e303]: Reclamo de cargos facturados
-            - text:  
-        - option [ref=e305]:
-          - form [ref=e307]:
-            - banner [ref=e308]:
-              - button "Expand/Collapse" [ref=e309] [cursor=pointer]:
-                - generic [ref=e311]: 
-              - generic [ref=e313]: Reclamo por corte/restricción del servicio
-            - text:  
-        - option [ref=e315]:
-          - form [ref=e317]:
-            - banner [ref=e318]:
-              - button "Expand/Collapse" [ref=e319] [cursor=pointer]:
-                - generic [ref=e321]: 
-              - generic [ref=e323]: Facturar a consorcio
-            - text:             
-        - option [ref=e325]:
-          - form [ref=e327]:
-            - banner [ref=e328]:
-              - button "Expand/Collapse" [ref=e329] [cursor=pointer]:
-                - generic [ref=e331]: 
-              - generic [ref=e333]: Independizar mi factura
-            - text:       
-        - option [ref=e335]:
-          - form [ref=e337]:
-            - banner [ref=e338]:
-              - button "Expand/Collapse" [ref=e339] [cursor=pointer]:
-                - generic [ref=e341]: 
-              - generic [ref=e343]: Unificar baulera o cochera
-            - text:          
-        - option [ref=e345]:
-          - form [ref=e347]:
-            - banner [ref=e348]:
-              - button "Expand/Collapse" [ref=e349] [cursor=pointer]:
-                - generic [ref=e351]: 
-              - generic [ref=e353]: Subdividir / Rectificar propiedad horizontal (PH)
-            - text:               
-        - option [ref=e355]:
-          - form [ref=e357]:
-            - banner [ref=e358]:
-              - button "Expand/Collapse" [ref=e359] [cursor=pointer]:
-                - generic [ref=e361]: 
-              - generic [ref=e363]: Recategorizar la unidad con destino cochera
-            - text:      
-        - option [ref=e365]:
-          - form [ref=e367]:
-            - banner [ref=e368]:
-              - button "Expand/Collapse" [ref=e369] [cursor=pointer]:
-                - generic [ref=e371]: 
-              - generic [ref=e373]: Informar cambios en el inmueble
-            - text:  
-        - option [ref=e375]:
-          - form [ref=e377]:
-            - banner [ref=e378]:
-              - button "Expand/Collapse" [ref=e379] [cursor=pointer]:
-                - generic [ref=e381]: 
-              - generic [ref=e383]: Actualizar datos de la parcela / terreno
-            - text:        
-        - option [ref=e385]:
-          - form [ref=e387]:
-            - banner [ref=e388]:
-              - button "Expand/Collapse" [ref=e389] [cursor=pointer]:
-                - generic [ref=e391]: 
-              - generic [ref=e393]: Exención de pago
-            - text:                         
-        - option [ref=e395]:
-          - form [ref=e397]:
-            - banner [ref=e398]:
-              - button "Expand/Collapse" [ref=e399] [cursor=pointer]:
-                - generic [ref=e401]: 
-              - generic [ref=e403]: Solicitar una conexión
-            - text:      
-        - option [ref=e405]:
-          - form [ref=e407]:
-            - banner [ref=e408]:
-              - button "Expand/Collapse" [ref=e409] [cursor=pointer]:
-                - generic [ref=e411]: 
-              - generic [ref=e413]: Localizar una conexión
-            - text:  
-        - option [ref=e415]:
-          - form [ref=e417]:
-            - banner [ref=e418]:
-              - button "Expand/Collapse" [ref=e419] [cursor=pointer]:
-                - generic [ref=e421]: 
-              - generic [ref=e423]: Solicitar el retiro de una conexión
-            - text:      
-        - option [ref=e425]:
-          - form [ref=e427]:
-            - banner [ref=e428]:
-              - button "Expand/Collapse" [ref=e429] [cursor=pointer]:
-                - generic [ref=e431]: 
-              - generic [ref=e433]: Solicitar la desconexión del Servicio
-            - text:      
-        - option [ref=e435]:
-          - form [ref=e437]:
-            - banner [ref=e438]:
-              - button "Expand/Collapse" [ref=e439] [cursor=pointer]:
-                - generic [ref=e441]: 
-              - generic [ref=e443]: Solicitar la reconexión del Servicio
-            - text:      
-        - option [ref=e445]:
-          - form [ref=e447]:
-            - banner [ref=e448]:
-              - button "Expand/Collapse" [ref=e449] [cursor=pointer]:
-                - generic [ref=e451]: 
-              - generic [ref=e453]: Factibilidad técnica
-            - text:          
-        - option [ref=e455]:
-          - form [ref=e457]:
-            - banner [ref=e458]:
-              - button "Expand/Collapse" [ref=e459] [cursor=pointer]:
-                - generic [ref=e461]: 
-              - generic [ref=e463]: Solicitar Planos Domiciliarios
-            - text:    
-      - generic [ref=e467]:
-        - generic [ref=e469]: 
-        - link "Mirá el Marco Regulatorio, Instrumento de Vinculación y Normativas" [ref=e471] [cursor=pointer]:
-          - /url: https://www.argentina.gob.ar/argentina.gob.ar/eras/institucional/informacion-tecnica/regimen-tarifario-eras
-      - generic [ref=e472]:
-        - generic:
-          - button "Consultas":
-            - generic [ref=e473] [cursor=pointer]:
-              - generic [ref=e474]: Consultas
-              - generic [ref=e475]: 
-    - generic [ref=e478]:
-      - generic [ref=e480]:
-        - img [ref=e482]
-        - generic [ref=e484]: Atención Comercial
-        - link "6333-AGUA(2482)" [ref=e486] [cursor=pointer]:
+      - generic [ref=e41]:
+        - generic [ref=e43]: Estado de Cuenta
+        - generic [ref=e45]: Seleccioná tu cuenta
+      - generic [ref=e49] [cursor=pointer]:
+        - combobox [ref=e50]: 1275999 - Campichuelo
+        - textbox [ref=e51]: "1275999"
+        - generic [ref=e52]: 1275999 - Campichuelo
+        - generic [ref=e53]: 
+      - generic [ref=e56]:
+        - generic [ref=e58]: Su saldo es $ 367.240,58
+        - generic [ref=e60]: "*"
+      - generic [ref=e63]:
+        - generic [ref=e64]:
+          - generic [ref=e66]: "*"
+          - generic [ref=e68]: El Saldo informado puede incluir facturas no vencidas
+        - generic [ref=e69]:
+          - generic [ref=e71]: Si tenés deuda podes abonarla con quita de intereses
+          - link "Ingresando acá" [ref=e73] [cursor=pointer]:
+            - /url: "#"
+      - note "Message Strip Information Esta cuenta tiene un Cupón de Pago NO vencido" [ref=e75]:
+        - generic [ref=e76]: Message Strip Information
+        - generic [ref=e78]: 
+        - generic [ref=e79]: Esta cuenta tiene un Cupón de Pago NO vencido
+      - generic [ref=e81]:
+        - button "IMPRIMIR DETALLE" [ref=e83] [cursor=pointer]:
+          - generic [ref=e84]:
+            - generic [ref=e85]: IMPRIMIR DETALLE
+            - generic [ref=e86]: 
+        - button "VER CUPONES GENERADOS" [ref=e88] [cursor=pointer]:
+          - generic [ref=e89]:
+            - generic [ref=e90]: VER CUPONES GENERADOS
+            - generic [ref=e91]: 
+      - application [ref=e93]:
+        - table [ref=e94]:
+          - rowgroup [ref=e95]:
+            - row "DESCRIPCIÓN VENCIMIENTO IMP. ORIGINAL IMP. ACTUALIZADO" [ref=e96]:
+              - columnheader "DESCRIPCIÓN" [ref=e97]:
+                - generic [ref=e99]: DESCRIPCIÓN
+              - columnheader "VENCIMIENTO" [ref=e100]:
+                - generic [ref=e102]: VENCIMIENTO
+              - columnheader "IMP. ORIGINAL" [ref=e103]:
+                - generic [ref=e105]: IMP. ORIGINAL
+              - columnheader "IMP. ACTUALIZADO" [ref=e106]:
+                - generic [ref=e108]: IMP. ACTUALIZADO
+          - rowgroup [ref=e109]:
+            - row "Facturación General 23/05/2025 $ 31.094,40 $ 49.636,88" [ref=e110]:
+              - cell "Facturación General" [ref=e111]:
+                - generic [ref=e112]: Facturación General
+              - cell "23/05/2025" [ref=e113]:
+                - generic [ref=e114]: 23/05/2025
+              - cell "$ 31.094,40" [ref=e115]:
+                - generic [ref=e116]: $ 31.094,40
+              - cell "$ 49.636,88" [ref=e117]:
+                - generic [ref=e118]: $ 49.636,88
+            - row "Facturación General 19/06/2025 $ 31.583,33 $ 48.817,85" [ref=e119]:
+              - cell "Facturación General" [ref=e120]:
+                - generic [ref=e121]: Facturación General
+              - cell "19/06/2025" [ref=e122]:
+                - generic [ref=e123]: 19/06/2025
+              - cell "$ 31.583,33" [ref=e124]:
+                - generic [ref=e125]: $ 31.583,33
+              - cell "$ 48.817,85" [ref=e126]:
+                - generic [ref=e127]: $ 48.817,85
+            - row "Facturación General 18/07/2025 $ 31.888,59 $ 47.668,38" [ref=e128]:
+              - cell "Facturación General" [ref=e129]:
+                - generic [ref=e130]: Facturación General
+              - cell "18/07/2025" [ref=e131]:
+                - generic [ref=e132]: 18/07/2025
+              - cell "$ 31.888,59" [ref=e133]:
+                - generic [ref=e134]: $ 31.888,59
+              - cell "$ 47.668,38" [ref=e135]:
+                - generic [ref=e136]: $ 47.668,38
+            - row "Facturación General 22/08/2025 $ 32.196,79 $ 41.345,26" [ref=e137]:
+              - cell "Facturación General" [ref=e138]:
+                - generic [ref=e139]: Facturación General
+              - cell "22/08/2025" [ref=e140]:
+                - generic [ref=e141]: 22/08/2025
+              - cell "$ 32.196,79" [ref=e142]:
+                - generic [ref=e143]: $ 32.196,79
+              - cell "$ 41.345,26" [ref=e144]:
+                - generic [ref=e145]: $ 41.345,26
+            - row "Facturación General 19/09/2025 $ 32.518,77 $ 39.822,06" [ref=e146]:
+              - cell "Facturación General" [ref=e147]:
+                - generic [ref=e148]: Facturación General
+              - cell "19/09/2025" [ref=e149]:
+                - generic [ref=e150]: 19/09/2025
+              - cell "$ 32.518,77" [ref=e151]:
+                - generic [ref=e152]: $ 32.518,77
+              - cell "$ 39.822,06" [ref=e153]:
+                - generic [ref=e154]: $ 39.822,06
+            - row "Facturación General 17/10/2025 $ 32.833,06 $ 38.260,82" [ref=e155]:
+              - cell "Facturación General" [ref=e156]:
+                - generic [ref=e157]: Facturación General
+              - cell "17/10/2025" [ref=e158]:
+                - generic [ref=e159]: 17/10/2025
+              - cell "$ 32.833,06" [ref=e160]:
+                - generic [ref=e161]: $ 32.833,06
+              - cell "$ 38.260,82" [ref=e162]:
+                - generic [ref=e163]: $ 38.260,82
+            - row "Facturación General 20/11/2025 $ 33.161,41 $ 34.401,94" [ref=e164]:
+              - cell "Facturación General" [ref=e165]:
+                - generic [ref=e166]: Facturación General
+              - cell "20/11/2025" [ref=e167]:
+                - generic [ref=e168]: 20/11/2025
+              - cell "$ 33.161,41" [ref=e169]:
+                - generic [ref=e170]: $ 33.161,41
+              - cell "$ 34.401,94" [ref=e171]:
+                - generic [ref=e172]: $ 34.401,94
+            - row "Facturación General 19/12/2025 $ 33.481,91 $ 33.481,91" [ref=e173]:
+              - cell "Facturación General" [ref=e174]:
+                - generic [ref=e175]: Facturación General
+              - cell "19/12/2025" [ref=e176]:
+                - generic [ref=e177]: 19/12/2025
+              - cell "$ 33.481,91" [ref=e178]:
+                - generic [ref=e179]: $ 33.481,91
+              - cell "$ 33.481,91" [ref=e180]:
+                - generic [ref=e181]: $ 33.481,91
+            - row "Facturación General 16/01/2026 $ 33.805,48 $ 33.805,48" [ref=e182]:
+              - cell "Facturación General" [ref=e183]:
+                - generic [ref=e184]: Facturación General
+              - cell "16/01/2026" [ref=e185]:
+                - generic [ref=e186]: 16/01/2026
+              - cell "$ 33.805,48" [ref=e187]:
+                - generic [ref=e188]: $ 33.805,48
+              - cell "$ 33.805,48" [ref=e189]:
+                - generic [ref=e190]: $ 33.805,48
+      - button "PAGAR MI DEUDA" [ref=e194] [cursor=pointer]:
+        - generic [ref=e195]:
+          - generic [ref=e196]: PAGAR MI DEUDA
+          - generic [ref=e197]: 
+    - generic [ref=e200]:
+      - generic [ref=e202]:
+        - img [ref=e204]
+        - generic [ref=e206]: Atención Comercial
+        - link "6333-AGUA(2482)" [ref=e208] [cursor=pointer]:
           - /url: tel:63332482
-        - link "0810-444-AySA(2972)*" [ref=e488] [cursor=pointer]:
+        - link "0810-444-AySA(2972)*" [ref=e210] [cursor=pointer]:
           - /url: tel:08104442972
-        - generic [ref=e490]: Días hábiles de 8 a 18 hs.
-      - generic [ref=e492]:
-        - img [ref=e494]
-        - generic [ref=e496]: Atención Técnica
-        - link "0800-321-AGUA(2482)" [ref=e498] [cursor=pointer]:
+        - generic [ref=e212]: Días hábiles de 8 a 18 hs.
+      - generic [ref=e214]:
+        - img [ref=e216]
+        - generic [ref=e218]: Atención Técnica
+        - link "0800-321-AGUA(2482)" [ref=e220] [cursor=pointer]:
           - /url: tel:08003212482
-        - link "0810-444-AySA(2972)*" [ref=e500] [cursor=pointer]:
+        - link "0810-444-AySA(2972)*" [ref=e222] [cursor=pointer]:
           - /url: tel:08104442972
-        - generic [ref=e502]: Todos los días, las 24 hs.
-      - generic [ref=e504]:
-        - img [ref=e506]
-        - generic [ref=e508]: Redes Sociales
-        - generic [ref=e509]:
-          - link "Facebook" [ref=e511] [cursor=pointer]:
+        - generic [ref=e224]: Todos los días, las 24 hs.
+      - generic [ref=e226]:
+        - img [ref=e228]
+        - generic [ref=e230]: Redes Sociales
+        - generic [ref=e231]:
+          - link "Facebook" [ref=e233] [cursor=pointer]:
             - /url: https://www.facebook.com/AySA.Argentina/
-          - generic [ref=e513]: "|"
-          - link "Instagram" [ref=e515] [cursor=pointer]:
+          - generic [ref=e235]: "|"
+          - link "Instagram" [ref=e237] [cursor=pointer]:
             - /url: https://www.instagram.com/aysa.oficial
-        - generic [ref=e517]: "At. Comercial: días hábiles de 8 a 18 hs."
-        - generic [ref=e519]: "At. Técnica: todos los días de 6 a 24 hs."
-      - generic [ref=e521]:
-        - img [ref=e523]
-        - generic [ref=e525]: Correo Electrónico
-        - link "Atención vía e-mail" [ref=e527] [cursor=pointer]:
+        - generic [ref=e239]: "At. Comercial: días hábiles de 8 a 18 hs."
+        - generic [ref=e241]: "At. Técnica: todos los días de 6 a 24 hs."
+      - generic [ref=e243]:
+        - img [ref=e245]
+        - generic [ref=e247]: Correo Electrónico
+        - link "Atención vía e-mail" [ref=e249] [cursor=pointer]:
           - /url: https://aysa.com.ar/atencion_usuarios
-        - generic [ref=e529]: Días hábiles de 8 a 18 hs.
-      - generic [ref=e531]:
-        - generic [ref=e533]: "* Para usuarios/as de Escobar, José C. Paz, Merlo, Moreno, Pilar y Presidente Perón."
-        - paragraph [ref=e535]:
+        - generic [ref=e251]: Días hábiles de 8 a 18 hs.
+      - generic [ref=e253]:
+        - generic [ref=e255]: "* Para usuarios/as de Escobar, José C. Paz, Merlo, Moreno, Pilar y Presidente Perón."
+        - paragraph [ref=e257]:
           - text: Copyright 2020 - Todos los derechos reservados - Agua y Saneamientos Argentinos S.A -
-          - link "Términos y condiciones de utilización del sitio" [ref=e536] [cursor=pointer]:
+          - link "Términos y condiciones de utilización del sitio" [ref=e258] [cursor=pointer]:
             - /url: http://www.aysa.com.ar/Terminos_y_condiciones
 ```
