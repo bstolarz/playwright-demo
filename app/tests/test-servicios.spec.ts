@@ -20,8 +20,8 @@ test.describe('Navegacion en servicios Campichuelo', () => {
         if (InicioBoton) {
             await InicioBoton.click();
         }
-        expect(true).toBe(false);
-        /*
+    
+        
         const flecha = await page.locator('#container-ovPortal---home--selectCuenta-label')
         await flecha.click();
         await sleep(3000);
@@ -32,12 +32,12 @@ test.describe('Navegacion en servicios Campichuelo', () => {
         const saldo = await page.locator('[id="__text68"]').textContent();
         console.log("saldo: " + saldo);
       
-          const valoresColumnaNombres = await page.$$eval('table tbody tr td:nth-child(4)', elements => elements.map(element => element.textContent));
+        const valoresColumnaNombres = await page.$$eval('table tbody tr td:nth-child(4)', elements => elements.map(element => element.textContent));
          
-          expect(valoresColumnaNombres[0].split('$')[1].trimStart()).toEqual(saldo?.split('$')[1].trimStart());
-        const saldoUltimaFactura = await page.getByText('$ 31.094,40', { exact: true })
+        await expect(valoresColumnaNombres[0].split('$')[1].trimStart(), "HAY DEUDA").toEqual(saldo?.split('$')[1].trimStart());
+        
         await expect(saldo?.trimStart().replace(' ', ''), "HAY DEUDA").toBe("Su saldo es $0,00");
-        */
+        
     });
     test('Accedo a la deuda de Metrogas', async ({page}, testInfo: TestInfo) => {
       //test.fixme(true, "No se puede acceder a la deuda de Metrogas");
