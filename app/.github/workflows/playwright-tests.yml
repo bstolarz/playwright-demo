@@ -1,0 +1,87 @@
+name: Playwright Tests
+
+on:
+  # Run on push to main/master branch
+  push:
+    branches: [main, master]
+  # Run on pull requests
+  pull_request:
+    branches: [main, master]
+  # Allow manual trigger from GitHub Actions UI
+  workflow_dispatch:
+    inputs:
+      test_name:
+        description: 'Specific test to run (leave empty for all)'
+        required: false
+        default: ''
+        type: choice
+        options:
+          - ''
+          - 'Accedo a la deuda de AYSA'
+          - 'Accedo a la deuda de Metrogas'
+          - 'Accedo a la deuda de Edenor'
+          - 'Accedo a website de ABL'
+
+jobs:
+  test:
+    name: Run Playwright Tests
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    
+    defaults:
+      run:
+        working-directory: ./app
+
+    steps:
+      # Checkout the repository
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # Setup Node.js
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+          cache-dependency-path: app/package-lock.json
+
+      # Install dependencies
+      - name: Install dependencies
+        run: npm ci
+
+      # Install Playwright browsers
+      - name: Install Playwright Browsers
+        run: npx playwright install --with-deps chromium
+
+      # Run all tests (default)
+      - name: Run Playwright tests
+        if: ${{ github.event.inputs.test_name == '' }}
+        run: npx playwright test tests/test-servicios.spec.ts
+        env:
+          TWOCAPTCHA_API_KEY: ${{ secrets.TWOCAPTCHA_API_KEY }}
+
+      # Run specific test (when manually triggered with a test name)
+      - name: Run specific Playwright test
+        if: ${{ github.event.inputs.test_name != '' }}
+        run: npx playwright test --grep "${{ github.event.inputs.test_name }}"
+        env:
+          TWOCAPTCHA_API_KEY: ${{ secrets.TWOCAPTCHA_API_KEY }}
+
+      # Upload test results as artifacts
+      - name: Upload Playwright Report
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: playwright-report
+          path: app/playwright-report/
+          retention-days: 30
+
+      # Upload test traces for debugging
+      - name: Upload Test Results
+        uses: actions/upload-artifact@v4
+        if: failure()
+        with:
+          name: test-results
+          path: app/test-results/
+          retention-days: 7
+

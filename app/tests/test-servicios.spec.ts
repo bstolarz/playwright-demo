@@ -34,7 +34,7 @@ test.describe('Navegacion en servicios Campichuelo', () => {
       
         const valoresColumnaNombres = await page.$$eval('table tbody tr td:nth-child(4)', elements => elements.map(element => element.textContent));
          
-        await expect(valoresColumnaNombres[0].split('$')[1].trimStart(), "HAY DEUDA").toEqual(saldo?.split('$')[1].trimStart());
+        await expect(valoresColumnaNombres[0]?.split('$')[1].trimStart(), "HAY DEUDA").toEqual(saldo?.split('$')[1].trimStart());
         
         await expect(saldo?.trimStart().replace(' ', ''), "HAY DEUDA").toBe("Su saldo es $0,00");
         
