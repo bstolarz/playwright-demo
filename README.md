@@ -1,2 +1,2 @@
-This Playwright project is a hobby project to scrap services such as gas and electricity provider bills and provide a status of the payment.
+This Playwright project is a hobby project to practice Playwright
 Currently in progress. 
