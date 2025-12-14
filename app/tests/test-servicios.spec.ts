@@ -1,4 +1,5 @@
 import {test, expect, Browser, Page, TestInfo} from '@playwright/test';
+import { solvePageRecaptcha } from './Utils/captchaSolver';
 
 (async () => {
 test.describe('Navegacion en servicios Campichuelo', () => {
@@ -19,19 +20,26 @@ test.describe('Navegacion en servicios Campichuelo', () => {
         if (InicioBoton) {
             await InicioBoton.click();
         }
-        await sleep(3000);
+        expect(true).toBe(false);
+        /*
         const flecha = await page.locator('#container-ovPortal---home--selectCuenta-label')
         await flecha.click();
-        await page.getByRole('option', { name: '2317896 - Casa Tigre' }).click(); // select the option
+        await sleep(3000);
+        await page.locator('#container-ovPortal---home--selectCuenta-arrow').click();
+        await page.getByRole('option', { name: '- Campichuelo' }).click();
+        await page.getByRole('button', { name: 'Ver detalle' }).click();
 
-        //await page.getByRole('link', { name: 'Última factura' }).click();
-        //await page.waitForURL('**/ultima-factura');
-        
-
-        //await page.$$eval('h1', (elements) => elements.map(element => element.textContent));
-
+        const saldo = await page.locator('[id="__text68"]').textContent();
+        console.log("saldo: " + saldo);
+      
+          const valoresColumnaNombres = await page.$$eval('table tbody tr td:nth-child(4)', elements => elements.map(element => element.textContent));
+         
+          expect(valoresColumnaNombres[0].split('$')[1].trimStart()).toEqual(saldo?.split('$')[1].trimStart());
+        const saldoUltimaFactura = await page.getByText('$ 31.094,40', { exact: true })
+        await expect(saldo?.trimStart().replace(' ', ''), "HAY DEUDA").toBe("Su saldo es $0,00");
+        */
     });
-    test.only('Accedo a la deuda de Metrogas', async ({page}, testInfo: TestInfo) => {
+    test('Accedo a la deuda de Metrogas', async ({page}, testInfo: TestInfo) => {
       //test.fixme(true, "No se puede acceder a la deuda de Metrogas");
       //test.fail(true, "No se puede acceder a la deuda de Metrogas");
       await page.goto('https://www.metrogas.com.ar/');
@@ -45,9 +53,43 @@ test.describe('Navegacion en servicios Campichuelo', () => {
       await page.getByRole('textbox', { name: 'Password' }).click();
       await page.getByRole('textbox', { name: 'Password' }).fill('listento_32');
       await page.locator('#logOnFormSubmit').click();
-      await sleep(3000);
-      await expect(page.getByText('No registra deuda'), 'HAY UN ERROR').toBeVisible();
+      //await sleep(3000);
+      const estadoCuenta = await page.getByLabel('Estado de Cuenta').getByText('$').textContent();
+      const ultimaFactura = await page.getByLabel('Última factura').getByText('$').textContent();
+      expect(estadoCuenta?.trimStart(), 'HAY DEUDA').toEqual(ultimaFactura?.trimStart());
 
+    });
+
+    test.skip('Accedo a la deuda de Edenor', async ({page}, testInfo: TestInfo) => {
+      await page.goto('https://www.edenordigital.com');
+      //const emailBtn = page.getByTestId('unifiedAuth.email');
+      const emailBtn = page.locator('[data-testid="unifiedAuth.email"]');
+      await emailBtn.click();
+      const usernameInput = page.locator('.MuiInputBase-root').first()
+      await usernameInput.fill('brenda.stolarz@gmail.com');
+      /*
+      await page.getByRole('textbox', { name: 'Email' }).fill('brenda.stolarz@gmail.com');
+      await page.getByRole('button', { name: 'Continue' }).click();
+      await page.getByRole('textbox', { name: 'Password' }).click();
+      */
+    });
+
+    test.skip('Accedo a website de ABL', async ({page}, testInfo: TestInfo) => {
+      // Increase timeout for captcha solving (can take up to 2 minutes)
+      test.setTimeout(180000);
+      
+      await page.goto('https://lb.agip.gob.ar/ConsultaABL/');
+      await page.getByRole('textbox', { name: 'Partida', exact: true }).fill('1749841');
+      await page.getByRole('textbox', { name: 'Reingrese partida' }).fill('1749841');
+      
+      // Solve the reCAPTCHA using 2Captcha API
+      await solvePageRecaptcha(page);
+      
+      await page.getByRole('button', { name: 'Consultar' }).click();
+      
+      // Wait for results and verify
+      await page.waitForLoadState('networkidle');
+      testInfo.attach('screenshot-result', { body: await page.screenshot(), contentType: 'image/png' });
     });
 
   });

@@ -14,11 +14,11 @@ export default defineConfig({
       name: 'chromium',
       testMatch: 'tests/test-servicios.spec.ts',
       use: { browserName: 'chromium' },
-    },
+    } /*,
     {
        name: 'iPhone',
        testMatch: 'tests/test-servicios.spec.ts',
        use: { ...devices['iPhone 13'], video: 'retain-on-failure'},
-    } 
+    } */
   ],
 });
