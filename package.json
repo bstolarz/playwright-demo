@@ -11,7 +11,7 @@
     "test:abl": "npx playwright test --grep 'Accedo a website de ABL'",
     "server": "npx tsx server.ts",
     "server:dev": "npx tsx watch server.ts",
-    "dev": "ts-node-dev --respawn --transpile-only src/server.ts",
+    "dev": "ts-node-dev --respawn --transpile-only server.ts",
     "build": "tsc",
     "start": "node dist/server.js",
     "typecheck": "tsc --noEmit"
