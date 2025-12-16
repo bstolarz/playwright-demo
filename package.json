@@ -2,7 +2,7 @@
   "name": "playwright-demo",
   "version": "1.0.0",
   "description": "Playwright test automation for utility services",
-  "main": "index.js",
+  "main": "dist/server.js",
   "scripts": {
     "test": "npx playwright test",
     "test:aysa": "npx playwright test --grep 'Accedo a la deuda de AYSA'",
