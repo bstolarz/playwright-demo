@@ -23,7 +23,8 @@
   "devDependencies": {
     "@playwright/test": "^1.56.1",
     "@types/node": "^25.0.1",
-    "tsx": "^4.21.0"
+    "tsx": "^4.21.0",
+    "typescript": "^5.9.3"
   },
   "dependencies": {
     "@fastify/cors": "^11.2.0",

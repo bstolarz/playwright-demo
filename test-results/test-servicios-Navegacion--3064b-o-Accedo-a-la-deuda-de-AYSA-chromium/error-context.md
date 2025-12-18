@@ -30,166 +30,57 @@
         - textbox [ref=e51]: "1275999"
         - generic [ref=e52]: 1275999 - Campichuelo
         - generic [ref=e53]: 
-      - generic [ref=e56]:
-        - generic [ref=e58]: Su saldo es $ 367.240,58
-        - generic [ref=e60]: "*"
-      - generic [ref=e63]:
-        - generic [ref=e64]:
-          - generic [ref=e66]: "*"
-          - generic [ref=e68]: El Saldo informado puede incluir facturas no vencidas
-        - generic [ref=e69]:
-          - generic [ref=e71]: Si tenés deuda podes abonarla con quita de intereses
-          - link "Ingresando acá" [ref=e73] [cursor=pointer]:
-            - /url: "#"
-      - note "Message Strip Information Esta cuenta tiene un Cupón de Pago NO vencido" [ref=e75]:
-        - generic [ref=e76]: Message Strip Information
-        - generic [ref=e78]: 
-        - generic [ref=e79]: Esta cuenta tiene un Cupón de Pago NO vencido
-      - generic [ref=e81]:
-        - button "IMPRIMIR DETALLE" [ref=e83] [cursor=pointer]:
-          - generic [ref=e84]:
-            - generic [ref=e85]: IMPRIMIR DETALLE
-            - generic [ref=e86]: 
-        - button "VER CUPONES GENERADOS" [ref=e88] [cursor=pointer]:
-          - generic [ref=e89]:
-            - generic [ref=e90]: VER CUPONES GENERADOS
-            - generic [ref=e91]: 
-      - application [ref=e93]:
-        - table [ref=e94]:
-          - rowgroup [ref=e95]:
-            - row "DESCRIPCIÓN VENCIMIENTO IMP. ORIGINAL IMP. ACTUALIZADO" [ref=e96]:
-              - columnheader "DESCRIPCIÓN" [ref=e97]:
-                - generic [ref=e99]: DESCRIPCIÓN
-              - columnheader "VENCIMIENTO" [ref=e100]:
-                - generic [ref=e102]: VENCIMIENTO
-              - columnheader "IMP. ORIGINAL" [ref=e103]:
-                - generic [ref=e105]: IMP. ORIGINAL
-              - columnheader "IMP. ACTUALIZADO" [ref=e106]:
-                - generic [ref=e108]: IMP. ACTUALIZADO
-          - rowgroup [ref=e109]:
-            - row "Facturación General 23/05/2025 $ 31.094,40 $ 49.636,88" [ref=e110]:
-              - cell "Facturación General" [ref=e111]:
-                - generic [ref=e112]: Facturación General
-              - cell "23/05/2025" [ref=e113]:
-                - generic [ref=e114]: 23/05/2025
-              - cell "$ 31.094,40" [ref=e115]:
-                - generic [ref=e116]: $ 31.094,40
-              - cell "$ 49.636,88" [ref=e117]:
-                - generic [ref=e118]: $ 49.636,88
-            - row "Facturación General 19/06/2025 $ 31.583,33 $ 48.817,85" [ref=e119]:
-              - cell "Facturación General" [ref=e120]:
-                - generic [ref=e121]: Facturación General
-              - cell "19/06/2025" [ref=e122]:
-                - generic [ref=e123]: 19/06/2025
-              - cell "$ 31.583,33" [ref=e124]:
-                - generic [ref=e125]: $ 31.583,33
-              - cell "$ 48.817,85" [ref=e126]:
-                - generic [ref=e127]: $ 48.817,85
-            - row "Facturación General 18/07/2025 $ 31.888,59 $ 47.668,38" [ref=e128]:
-              - cell "Facturación General" [ref=e129]:
-                - generic [ref=e130]: Facturación General
-              - cell "18/07/2025" [ref=e131]:
-                - generic [ref=e132]: 18/07/2025
-              - cell "$ 31.888,59" [ref=e133]:
-                - generic [ref=e134]: $ 31.888,59
-              - cell "$ 47.668,38" [ref=e135]:
-                - generic [ref=e136]: $ 47.668,38
-            - row "Facturación General 22/08/2025 $ 32.196,79 $ 41.345,26" [ref=e137]:
-              - cell "Facturación General" [ref=e138]:
-                - generic [ref=e139]: Facturación General
-              - cell "22/08/2025" [ref=e140]:
-                - generic [ref=e141]: 22/08/2025
-              - cell "$ 32.196,79" [ref=e142]:
-                - generic [ref=e143]: $ 32.196,79
-              - cell "$ 41.345,26" [ref=e144]:
-                - generic [ref=e145]: $ 41.345,26
-            - row "Facturación General 19/09/2025 $ 32.518,77 $ 39.822,06" [ref=e146]:
-              - cell "Facturación General" [ref=e147]:
-                - generic [ref=e148]: Facturación General
-              - cell "19/09/2025" [ref=e149]:
-                - generic [ref=e150]: 19/09/2025
-              - cell "$ 32.518,77" [ref=e151]:
-                - generic [ref=e152]: $ 32.518,77
-              - cell "$ 39.822,06" [ref=e153]:
-                - generic [ref=e154]: $ 39.822,06
-            - row "Facturación General 17/10/2025 $ 32.833,06 $ 38.260,82" [ref=e155]:
-              - cell "Facturación General" [ref=e156]:
-                - generic [ref=e157]: Facturación General
-              - cell "17/10/2025" [ref=e158]:
-                - generic [ref=e159]: 17/10/2025
-              - cell "$ 32.833,06" [ref=e160]:
-                - generic [ref=e161]: $ 32.833,06
-              - cell "$ 38.260,82" [ref=e162]:
-                - generic [ref=e163]: $ 38.260,82
-            - row "Facturación General 20/11/2025 $ 33.161,41 $ 34.401,94" [ref=e164]:
-              - cell "Facturación General" [ref=e165]:
-                - generic [ref=e166]: Facturación General
-              - cell "20/11/2025" [ref=e167]:
-                - generic [ref=e168]: 20/11/2025
-              - cell "$ 33.161,41" [ref=e169]:
-                - generic [ref=e170]: $ 33.161,41
-              - cell "$ 34.401,94" [ref=e171]:
-                - generic [ref=e172]: $ 34.401,94
-            - row "Facturación General 19/12/2025 $ 33.481,91 $ 33.481,91" [ref=e173]:
-              - cell "Facturación General" [ref=e174]:
-                - generic [ref=e175]: Facturación General
-              - cell "19/12/2025" [ref=e176]:
-                - generic [ref=e177]: 19/12/2025
-              - cell "$ 33.481,91" [ref=e178]:
-                - generic [ref=e179]: $ 33.481,91
-              - cell "$ 33.481,91" [ref=e180]:
-                - generic [ref=e181]: $ 33.481,91
-            - row "Facturación General 16/01/2026 $ 33.805,48 $ 33.805,48" [ref=e182]:
-              - cell "Facturación General" [ref=e183]:
-                - generic [ref=e184]: Facturación General
-              - cell "16/01/2026" [ref=e185]:
-                - generic [ref=e186]: 16/01/2026
-              - cell "$ 33.805,48" [ref=e187]:
-                - generic [ref=e188]: $ 33.805,48
-              - cell "$ 33.805,48" [ref=e189]:
-                - generic [ref=e190]: $ 33.805,48
-      - button "PAGAR MI DEUDA" [ref=e194] [cursor=pointer]:
-        - generic [ref=e195]:
-          - generic [ref=e196]: PAGAR MI DEUDA
-          - generic [ref=e197]: 
-    - generic [ref=e200]:
-      - generic [ref=e202]:
-        - img [ref=e204]
-        - generic [ref=e206]: Atención Comercial
-        - link "6333-AGUA(2482)" [ref=e208] [cursor=pointer]:
+      - generic [ref=e55]:
+        - button "IMPRIMIR DETALLE" [ref=e57] [cursor=pointer]:
+          - generic [ref=e58]:
+            - generic [ref=e59]: IMPRIMIR DETALLE
+            - generic [ref=e60]: 
+        - button "VER CUPONES GENERADOS" [ref=e62] [cursor=pointer]:
+          - generic [ref=e63]:
+            - generic [ref=e64]: VER CUPONES GENERADOS
+            - generic [ref=e65]: 
+      - button "PAGAR MI DEUDA" [ref=e69] [cursor=pointer]:
+        - generic [ref=e70]:
+          - generic [ref=e71]: PAGAR MI DEUDA
+          - generic [ref=e72]: 
+    - generic [ref=e75]:
+      - generic [ref=e77]:
+        - img [ref=e79]
+        - generic [ref=e81]: Atención Comercial
+        - link "6333-AGUA(2482)" [ref=e83] [cursor=pointer]:
           - /url: tel:63332482
-        - link "0810-444-AySA(2972)*" [ref=e210] [cursor=pointer]:
+        - link "0810-444-AySA(2972)*" [ref=e85] [cursor=pointer]:
           - /url: tel:08104442972
-        - generic [ref=e212]: Días hábiles de 8 a 18 hs.
-      - generic [ref=e214]:
-        - img [ref=e216]
-        - generic [ref=e218]: Atención Técnica
-        - link "0800-321-AGUA(2482)" [ref=e220] [cursor=pointer]:
+        - generic [ref=e87]: Días hábiles de 8 a 18 hs.
+      - generic [ref=e89]:
+        - img [ref=e91]
+        - generic [ref=e93]: Atención Técnica
+        - link "0800-321-AGUA(2482)" [ref=e95] [cursor=pointer]:
           - /url: tel:08003212482
-        - link "0810-444-AySA(2972)*" [ref=e222] [cursor=pointer]:
+        - link "0810-444-AySA(2972)*" [ref=e97] [cursor=pointer]:
           - /url: tel:08104442972
-        - generic [ref=e224]: Todos los días, las 24 hs.
-      - generic [ref=e226]:
-        - img [ref=e228]
-        - generic [ref=e230]: Redes Sociales
-        - generic [ref=e231]:
-          - link "Facebook" [ref=e233] [cursor=pointer]:
+        - generic [ref=e99]: Todos los días, las 24 hs.
+      - generic [ref=e101]:
+        - img [ref=e103]
+        - generic [ref=e105]: Redes Sociales
+        - generic [ref=e106]:
+          - link "Facebook" [ref=e108] [cursor=pointer]:
             - /url: https://www.facebook.com/AySA.Argentina/
-          - generic [ref=e235]: "|"
-          - link "Instagram" [ref=e237] [cursor=pointer]:
+          - generic [ref=e110]: "|"
+          - link "Instagram" [ref=e112] [cursor=pointer]:
             - /url: https://www.instagram.com/aysa.oficial
-        - generic [ref=e239]: "At. Comercial: días hábiles de 8 a 18 hs."
-        - generic [ref=e241]: "At. Técnica: todos los días de 6 a 24 hs."
-      - generic [ref=e243]:
-        - img [ref=e245]
-        - generic [ref=e247]: Correo Electrónico
-        - link "Atención vía e-mail" [ref=e249] [cursor=pointer]:
+        - generic [ref=e114]: "At. Comercial: días hábiles de 8 a 18 hs."
+        - generic [ref=e116]: "At. Técnica: todos los días de 6 a 24 hs."
+      - generic [ref=e118]:
+        - img [ref=e120]
+        - generic [ref=e122]: Correo Electrónico
+        - link "Atención vía e-mail" [ref=e124] [cursor=pointer]:
           - /url: https://aysa.com.ar/atencion_usuarios
-        - generic [ref=e251]: Días hábiles de 8 a 18 hs.
-      - generic [ref=e253]:
-        - generic [ref=e255]: "* Para usuarios/as de Escobar, José C. Paz, Merlo, Moreno, Pilar y Presidente Perón."
-        - paragraph [ref=e257]:
+        - generic [ref=e126]: Días hábiles de 8 a 18 hs.
+      - generic [ref=e128]:
+        - generic [ref=e130]: "* Para usuarios/as de Escobar, José C. Paz, Merlo, Moreno, Pilar y Presidente Perón."
+        - paragraph [ref=e132]:
           - text: Copyright 2020 - Todos los derechos reservados - Agua y Saneamientos Argentinos S.A -
-          - link "Términos y condiciones de utilización del sitio" [ref=e258] [cursor=pointer]:
+          - link "Términos y condiciones de utilización del sitio" [ref=e133] [cursor=pointer]:
             - /url: http://www.aysa.com.ar/Terminos_y_condiciones
 ```
