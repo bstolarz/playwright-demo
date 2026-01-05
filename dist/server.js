@@ -106,6 +106,7 @@ fastify.post('/tests/:testId', async (request, reply) => {
     const result = await runPlaywrightTest(testName);
     if (!result.success) {
         reply.code(500);
+        fastify.log.info('_____ result: ' + result);
         return { error: 'Expected value does not match actual' };
     }
     return result;

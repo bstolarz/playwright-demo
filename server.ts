@@ -3,6 +3,8 @@ import Fastify from 'fastify';
 import cors from '@fastify/cors';
 import { exec, spawn, ChildProcess } from 'child_process';
 import { promisify } from 'util';
+import swagger from '@fastify/swagger';
+import swaggerUI from '@fastify/swagger-ui';
 
 const execAsync = promisify(exec);
 
@@ -13,6 +15,27 @@ const fastify = Fastify({
 // Enable CORS
 fastify.register(cors, {
   origin: true
+});
+
+// Enable Swagger
+await fastify.register(swagger, {
+  openapi: {
+    info: {
+      title: 'Bren Fastify API',
+      description: 'Bren Fastify API documentation',
+      version: '1.0.0',
+    },
+    servers: [
+      {
+        url: 'https://playwrighttestsservedwithfastify-e9fcaqegf0eef5e3.centralus-01.azurewebsites.net/',
+      },
+    ],
+  },
+});
+
+// Enable Swagger UI
+await fastify.register(swaggerUI, {
+  routePrefix: '/docs',
 });
 
 // Store running test processes
@@ -68,7 +91,22 @@ async function runPlaywrightTest(testName: string): Promise<TestResult> {
 }
 
 // Root endpoint - list available tests
-fastify.get('/', async () => {
+fastify.get('/', {
+  schema: {
+    description: 'Get API information and list of available endpoints',
+    tags: ['Info'],
+    response: {
+      200: {
+        description: 'API information',
+        type: 'object',
+        properties: {
+          message: { type: 'string' },
+          availableEndpoints: { type: 'object', additionalProperties: { type: 'string' } },
+        },
+      },
+    },
+  },
+}, async () => {
   return {
     message: 'Playwright Test Runner API',
     availableEndpoints: {
@@ -83,7 +121,31 @@ fastify.get('/', async () => {
 });
 
 // List all tests
-fastify.get('/tests', async () => {
+fastify.get('/tests', {
+  schema: {
+    description: 'List all available Playwright tests',
+    tags: ['Tests'],
+    response: {
+      200: {
+        description: 'List of available tests',
+        type: 'object',
+        properties: {
+          tests: {
+            type: 'array',
+            items: {
+              type: 'object',
+              properties: {
+                endpoint: { type: 'string' },
+                name: { type: 'string' },
+                method: { type: 'string' },
+              },
+            },
+          },
+        },
+      },
+    },
+  },
+}, async () => {
   return {
     tests: Object.entries(TESTS).map(([endpoint, name]) => ({
       endpoint: `/tests/${endpoint}`,
@@ -94,7 +156,36 @@ fastify.get('/tests', async () => {
 });
 
 // Run all tests
-fastify.post('/tests/run-all', async (request, reply) => {
+fastify.post('/tests/run-all', {
+  schema: {
+    description: 'Execute all Playwright tests sequentially',
+    tags: ['Tests'],
+    response: {
+      200: {
+        description: 'Results of all test executions',
+        type: 'object',
+        properties: {
+          totalTests: { type: 'number' },
+          passed: { type: 'number' },
+          failed: { type: 'number' },
+          results: {
+            type: 'array',
+            items: {
+              type: 'object',
+              properties: {
+                success: { type: 'boolean' },
+                testName: { type: 'string' },
+                output: { type: 'string' },
+                error: { type: 'string' },
+                duration: { type: 'number' },
+              },
+            },
+          },
+        },
+      },
+    },
+  },
+}, async (request, reply) => {
   reply.header('Content-Type', 'application/json');
   
   const results: TestResult[] = [];
@@ -114,7 +205,51 @@ fastify.post('/tests/run-all', async (request, reply) => {
 });
 
 // Individual test endpoints
-fastify.post<{ Params: { testId: TestName } }>('/tests/:testId', async (request, reply) => {
+fastify.post<{ Params: { testId: TestName } }>('/tests/:testId', {
+  schema: {
+    description: 'Execute a specific Playwright test by ID',
+    tags: ['Tests'],
+    params: {
+      type: 'object',
+      properties: {
+        testId: {
+          type: 'string',
+          enum: ['aysa', 'metrogas', 'edenor', 'abl'],
+          description: 'The test identifier to run',
+        },
+      },
+      required: ['testId'],
+    },
+    response: {
+      200: {
+        description: 'Test executed successfully',
+        type: 'object',
+        properties: {
+          success: { type: 'boolean' },
+          testName: { type: 'string' },
+          output: { type: 'string' },
+          error: { type: 'string' },
+          duration: { type: 'number' },
+        },
+      },
+      404: {
+        description: 'Test not found',
+        type: 'object',
+        properties: {
+          error: { type: 'string' },
+          availableTests: { type: 'array', items: { type: 'string' } },
+        },
+      },
+      500: {
+        description: 'Test execution failed',
+        type: 'object',
+        properties: {
+          error: { type: 'string' },
+        },
+      },
+    },
+  },
+}, async (request, reply) => {
   const { testId } = request.params;
   
   if (!(testId in TESTS)) {
@@ -132,6 +267,7 @@ fastify.post<{ Params: { testId: TestName } }>('/tests/:testId', async (request,
   
   if (!result.success) {
     reply.code(500);
+    fastify.log.info('_____ result: ' + result);
     return { error: 'Expected value does not match actual' };
   }
   
@@ -139,7 +275,36 @@ fastify.post<{ Params: { testId: TestName } }>('/tests/:testId', async (request,
 });
 
 // Stream test output (for long-running tests)
-fastify.get<{ Params: { testId: TestName } }>('/tests/:testId/stream', async (request, reply) => {
+fastify.get<{ Params: { testId: TestName } }>('/tests/:testId/stream', {
+  schema: {
+    description: 'Stream test output in real-time using Server-Sent Events (SSE)',
+    tags: ['Tests'],
+    params: {
+      type: 'object',
+      properties: {
+        testId: {
+          type: 'string',
+          enum: ['aysa', 'metrogas', 'edenor', 'abl'],
+          description: 'The test identifier to stream',
+        },
+      },
+      required: ['testId'],
+    },
+    response: {
+      200: {
+        description: 'SSE stream of test output',
+        type: 'string',
+      },
+      404: {
+        description: 'Test not found',
+        type: 'object',
+        properties: {
+          error: { type: 'string' },
+        },
+      },
+    },
+  },
+}, async (request, reply) => {
   const { testId } = request.params;
   
   if (!(testId in TESTS)) {
@@ -185,7 +350,22 @@ fastify.get<{ Params: { testId: TestName } }>('/tests/:testId/stream', async (re
 });
 
 // Health check
-fastify.get('/health', async () => {
+fastify.get('/health', {
+  schema: {
+    description: 'Check API health status',
+    tags: ['Health'],
+    response: {
+      200: {
+        description: 'API is healthy',
+        type: 'object',
+        properties: {
+          status: { type: 'string', enum: ['ok'] },
+          timestamp: { type: 'string', format: 'date-time' },
+        },
+      },
+    },
+  },
+}, async () => {
   return { status: 'ok', timestamp: new Date().toISOString() };
 });
 

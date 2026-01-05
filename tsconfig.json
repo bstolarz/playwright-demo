@@ -3,8 +3,8 @@
     /* Language and Environment */
     "target": "ES2022",
     "lib": ["ES2022", "DOM", "DOM.Iterable"],
-    "module": "CommonJS",
-    "moduleResolution": "node",
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
     
     /* Type Checking */
     "strict": true,
@@ -28,6 +28,7 @@
   },
   "include": [
     "server.ts",
+    "schemas/**/*.ts",
     "tests/**/*.ts"
   ],
   "exclude": [

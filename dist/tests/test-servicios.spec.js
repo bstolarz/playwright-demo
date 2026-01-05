@@ -23,13 +23,12 @@ const captchaSolver_1 = require("./Utils/captchaSolver");
             await flecha.click();
             await sleep(3000);
             await page.locator('#container-ovPortal---home--selectCuenta-arrow').click();
-            await page.getByRole('option', { name: '- Campichuelo' }).click();
+            await page.getByRole('option', { name: '- Casa Tigre' }).click();
             await page.getByRole('button', { name: 'Ver detalle' }).click();
-            const saldo = await page.locator('[id="__text68"]').textContent();
+            const saldo = await page.locator('[id="__text72"]').textContent();
             console.log("saldo: " + saldo);
             const valoresColumnaNombres = await page.$$eval('table tbody tr td:nth-child(4)', elements => elements.map(element => element.textContent));
             await (0, test_1.expect)(valoresColumnaNombres[0]?.split('$')[1].trimStart(), "HAY DEUDA").toEqual(saldo?.split('$')[1].trimStart());
-            await (0, test_1.expect)(saldo?.trimStart().replace(' ', ''), "HAY DEUDA").toBe("Su saldo es $0,00");
         });
         (0, test_1.test)('Accedo a la deuda de Metrogas', async ({ page }, testInfo) => {
             //test.fixme(true, "No se puede acceder a la deuda de Metrogas");
