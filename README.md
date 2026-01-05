@@ -1,5 +1,4 @@
-This Playwright project is a hobby project to practice Playwright
-Currently in progress. 
+This Project project is a Playwright hobby project to practice Playwright + Fastify API endpoints
 
 
 * To Run Fastify server, execute: npm run server
