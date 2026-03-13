@@ -2,9 +2,10 @@
 import { Solver } from '2captcha';
 import { Page } from '@playwright/test';
 
-// Initialize the solver with your API key
-// Get your API key from https://2captcha.com/enterpage
-const TWOCAPTCHA_API_KEY = process.env.TWOCAPTCHA_API_KEY || '2236ed0bf10c2af01c39aa116ced63bf';
+const TWOCAPTCHA_API_KEY = process.env.TWOCAPTCHA_API_KEY;
+if (!TWOCAPTCHA_API_KEY) {
+  throw new Error('TWOCAPTCHA_API_KEY no está definida en las variables de entorno');
+}
 
 const solver = new Solver(TWOCAPTCHA_API_KEY);
 
@@ -15,7 +16,7 @@ const solver = new Solver(TWOCAPTCHA_API_KEY);
  * @param pageUrl - The URL of the page with the captcha
  */
 export async function solveRecaptchaV2(page: Page, siteKey: string, pageUrl: string): Promise<string> {
-  console.log('Sending reCAPTCHA to 2Captcha for solving with api key...', TWOCAPTCHA_API_KEY);
+  console.log('Sending reCAPTCHA to 2Captcha for solving...');
   
   const result = await solver.recaptcha(siteKey, pageUrl);
   
